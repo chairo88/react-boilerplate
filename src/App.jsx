@@ -1,5 +1,5 @@
-import React from 'react'
-import './app.css'
+import React from 'react';
+import './app.scss';
 
 const App = () => (
   <div className='app'>
@@ -11,6 +11,6 @@ const App = () => (
     <h5>Babel</h5>
     <h5>Webpack</h5>
   </div>
-)
+);
 
-export default App
+export default App;

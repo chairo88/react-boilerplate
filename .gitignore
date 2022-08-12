@@ -1,3 +1,14 @@
+# Logs
+*.log
+
+# Dependency directory
 node_modules
+
+# VSCode settings
 .vscode
+
+# ESLint caches
+.eslintcache
+
+# Dynamically processed files
 dist

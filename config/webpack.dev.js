@@ -8,6 +8,9 @@ const common = require('./webpack.common');
 /** @type {import('webpack'.Configuration)} */
 const devConfig = {
   mode: 'development',
+  optimization: {
+    minimize: false,
+  },
   devServer: {
     port: 3000,
     open: 'chrome',
@@ -25,10 +28,10 @@ const devConfig = {
     rules: [
       {
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        test: /\.css$/,
+        test: /\.(css|scss|sass)$/,
       },
     ]
   }
-}
+};
 
 module.exports = merge(common, devConfig);

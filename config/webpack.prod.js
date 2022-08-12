@@ -20,6 +20,6 @@ const prodConfig = {
       },
     ]
   }
-}
+};
 
 module.exports = merge(common, prodConfig);
