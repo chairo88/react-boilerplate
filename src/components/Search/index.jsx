@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { usePodcasts } from '../../context/podcasts';
 
 import wordings from './wordings';
 
-const Search = ({ counter }) => {
-
-  const filterPodcasts = (event) => {
-    console.log(event.target.value);
+const Search = () => {
+  const { setSearchValue, podcastsCounter } = usePodcasts();
+  
+  const filterPodcasts = ({ target: { value } }) => {
+    setSearchValue(value);
   };
 
   return (
     <div className='search__container'>
       <div className='search__counter'>
         <span className='search__counter-text'>
-          {counter}
+          {podcastsCounter}
         </span>
       </div>
       <input

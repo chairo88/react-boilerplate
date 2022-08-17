@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+
 import Header from '../../components/Header';
 import Search from '../../components/Search';
-import { daysToMilliseconds } from '../../utils';
+import PodcastsList from '../../components/PodcastList';
+import { usePodcasts } from '../../context/podcasts';
 
 const Home = () => {
-  const [podcasts, setPodcasts] = useState(null);
-  const [podcastsCounter, setPodcastsCounter] = useState(null);
-
-  const getPodcastInfo = async () => {
-    console.log('entro en el fetch');
-    const cors_api_url = 'https://api.allorigins.win/get?url=';
-    const podcastsList = 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json';
-
-    const response = await fetch(`${cors_api_url}${encodeURIComponent(podcastsList)}`);
-    const { contents } = await response.json();
-    setPodcasts(JSON.parse(contents));
-    setPodcastsCounter(podcasts?.feed?.entry.length);
-  };
-
-  useEffect(() => {
-    getPodcastInfo();
-
-    const interval = setInterval(() => {
-      getPodcastInfo();
-    }, daysToMilliseconds(1));
-       
-    return () => clearInterval(interval);
-  }, [podcastsCounter]);
+  const { podcastsCounter, podcasts } = usePodcasts();
 
   return (
     <div>
       <Header />
-      <Search counter={podcastsCounter}/>
+      <Search counter={podcastsCounter} />
+      <PodcastsList list={podcasts} />
     </div>
   );
 };
