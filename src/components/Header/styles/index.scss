@@ -1,0 +1,14 @@
+@import './variables';
+
+.header__title {
+  color: $podcaster-link-color;
+}
+
+.header__link {
+  text-decoration: none;
+}
+
+.header__divider {
+  border: 1px solid $haeder-divider-color;
+  height: 0;
+}

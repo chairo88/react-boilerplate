@@ -13,7 +13,7 @@ const devConfig = {
   },
   devServer: {
     port: 3000,
-    open: 'chrome',
+    open: true,
     hot: true,
     static: {
       directory: path.join(__dirname, 'dist')

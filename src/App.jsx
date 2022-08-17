@@ -1,16 +1,35 @@
 import React from 'react';
-import './app.scss';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+} from 'react-router-dom';
 
-const App = () => (
-  <div className='app'>
-    <h1>Welcome to React Node Boilerplate</h1>
-    <h3>We use the next stack</h3>
-    <h5>React</h5>
-    <h5>Node</h5>
-    <h5>Express</h5>
-    <h5>Babel</h5>
-    <h5>Webpack</h5>
-  </div>
-);
+import app from './styles/app.scss';
+
+import Home from './routes/home';
+import Podcast from './routes/podcast';
+import Episode from './routes/episode';
+
+function App() {  
+  return (
+    <BrowserRouter>
+      <div className='podcaster__container'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="podcast" element={<Podcast />}>
+            <Route path=":podcastId" element={<Podcast />}>
+              <Route path="episode" element={<Episode />}>
+                <Route path=":episodeId" element={<Episode />} />
+              </Route>
+            </Route>
+          </Route>
+          <Route path="*" element={<Home />}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;

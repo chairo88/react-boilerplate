@@ -7,7 +7,7 @@
     "build": "webpack --config config/webpack.prod.js",
     "start": "webpack serve --config config/webpack.dev.js",
     "lint": "npm run lint:js",
-    "lint:js": "eslint src/index.js 'src/*.js' 'src/**/*.js' --cache --fix"
+    "lint:js": "eslint src/index.js 'src/*.js' 'src/**/*.js' 'src/**/**/*.js' --cache --fix"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,9 @@
   "dependencies": {
     "core-js": "^3.24.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "sass-rem": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

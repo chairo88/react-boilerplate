@@ -1,0 +1,18 @@
+@import 'variables';
+
+@import '../components/Header/styles';
+@import '../components/Search/styles';
+
+html {
+  background-color: $podcaster-background-color;
+  font-family: $podcaster-font-family;
+  margin: 0 auto;
+  max-width: 75ch;
+  scroll-behavior: smooth;
+}
+
+.podcaster__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
