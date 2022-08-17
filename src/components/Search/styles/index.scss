@@ -1,4 +1,30 @@
-.search-container {
+@import './variables';
+
+.search__container {
+  align-items: center;
   display: flex;
+  justify-content: flex-end;
   margin: $podcaster-spacing-24 0;
+}
+
+.search__counter-text {
+  font-size: $podcaster-font-size-12;
+  font-weight: 600;
+}
+
+.search__counter {
+  background-color: rgba(0, 56, 191, 0.71);
+  border-radius: $podcaster-border-radious-6;
+  color: white;
+  display: flex;
+  padding: $podcaster-spacing-4;
+}
+
+.search__input {
+  border: 1px solid $search-input-border-color;
+  border-radius: $podcaster-border-radious-4;
+  font-size: $podcaster-font-size-12;
+  margin: 0 $podcaster-spacing-16 0 $podcaster-spacing-8;
+  min-width: rem(180px);
+  padding: $podcaster-spacing-6 $podcaster-spacing-8;
 }

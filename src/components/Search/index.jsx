@@ -9,16 +9,16 @@ const Search = ({ counter }) => {
   };
 
   return (
-    <div className='search-container'>
-      <div>
-        <span>
+    <div className='search__container'>
+      <div className='search__counter'>
+        <span className='search__counter-text'>
           {counter}
         </span>
       </div>
       <input
         type='text'
         placeholder={wordings.placeholder}
-        className='search-input'
+        className='search__input'
         onChange={filterPodcasts}
       />        
     </div>
