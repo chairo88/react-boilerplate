@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { daysToMilliseconds } from '../utils';
+import CONSTANTS from '../utils/constants';
 
+const { URL_CORS_API, URL_PODCASTS_LIST } = CONSTANTS;
 const PodcastsContext = React.createContext();
 
 export const PodcastsProvider = (props) => {
@@ -9,10 +11,7 @@ export const PodcastsProvider = (props) => {
   const [podcastsCounter, setPodcastsCounter] = useState(null);
   
   const getPodcastInfo = async () => {
-    const cors_api_url = 'https://api.allorigins.win/get?url=';
-    const podcastsList = 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json';
-  
-    const response = await fetch(`${cors_api_url}${encodeURIComponent(podcastsList)}`);
+    const response = await fetch(`${URL_CORS_API}${encodeURIComponent(URL_PODCASTS_LIST)}`);
     const { contents } = await response.json();
     const result = JSON.parse(contents);
     setPodcasts(result?.feed?.entry);

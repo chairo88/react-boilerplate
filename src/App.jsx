@@ -11,6 +11,7 @@ import Home from './routes/home';
 import Podcast from './routes/podcast';
 import Episode from './routes/episode';
 import { PodcastsProvider } from './context/podcasts';
+import { PodcastDetailProvider } from './context/podcastDetail';
 
 function App() {  
   return (

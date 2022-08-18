@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import wordings from './wordings';
 
 const Header = () => (
   <div>
-    <a className='header__link' href='/'>
+    <Link className='header__link' to='/'>
       <h1 className='header__title'>
         {wordings.title}
       </h1>
-    </a>
+    </Link>
     <div className='header__divider' />
   </div>
 );

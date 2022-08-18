@@ -6,12 +6,16 @@
 @import '../components/Search/styles';
 @import '../components/PodcastCard/styles';
 @import '../components/PodcastList/styles';
+@import '../components/PodcastDetail/styles';
+@import '../components/Divider/styles';
+@import '../components/PodcastEpisodes/styles';
+@import '../components/PodcastEpisodesTable/styles';
 
 html {
   background-color: $podcaster-background-color;
   font-family: $podcaster-font-family;
   margin: 0 auto;
-  max-width: 80ch;
+  max-width: 100ch;
   scroll-behavior: smooth;
 }
 

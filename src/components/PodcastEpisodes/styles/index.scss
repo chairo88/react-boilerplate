@@ -1,0 +1,11 @@
+.podcast-episodes__counter {
+  align-items: center;
+  border: 1px solid $podcaster-gray-020;
+  box-shadow: 0px 1px 4px 1px $podcaster-gray-020;
+  display: flex;
+  font-size: $podcaster-font-size-18;
+  font-weight: 600;
+  height: rem(40px);
+  margin-bottom: $podcaster-spacing-20;
+  padding: 0 $podcaster-spacing-16;
+}

@@ -18,6 +18,7 @@ const PodcastsList = () => {
           const name = podcast['im:name'].label;
           const image = podcast['im:image'];
           const author = podcast['im:artist'].label;
+          const podcastId = podcast.id.attributes['im:id'];
 
           return (
             <PodcastCard 
@@ -25,6 +26,7 @@ const PodcastsList = () => {
               name={name}
               picture={image[0].label}
               author={author}
+              id={podcastId}
             />
           );
         })
