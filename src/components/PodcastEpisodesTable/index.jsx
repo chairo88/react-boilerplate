@@ -14,14 +14,14 @@ const PodcastEpisodesTable = () => {
         <tr className='podcast-episodes-table__header-row'>
           <th className='podcast-episodes-table__title'>{title}</th>
           <th>{date}</th>
-          <th>{duration}</th>
+          <th className='podcast-episodes-table-duration'>{duration}</th>
         </tr>
         {
           podcastEpisodes?.slice(1).map((element, index) => {
             return (
               <tr key={index}>
                 <td className='podcast-episodes-table__title'>{element.trackName}</td>
-                <td>{formatDate(new Date(element.releaseDate))}</td>
+                <td className='podcast-episodes-table__date'>{formatDate(new Date(element.releaseDate))}</td>
                 <td className='podcast-episodes-table-duration'>{millisToMinutesAndSeconds(element.trackTimeMillis)}</td>
               </tr>
             );
