@@ -21,7 +21,7 @@ export const PodcastDetailProvider = (props) => {
     const { contents } = await response.json();
     const result = JSON.parse(contents);
     setPodcastEpisodes(result?.results);
-    setpodcastEpisodesCounter(result?.resultCount);
+    setpodcastEpisodesCounter(result?.resultCount -1);
   };
 
   useEffect(() => {

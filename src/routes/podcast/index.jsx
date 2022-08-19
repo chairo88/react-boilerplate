@@ -8,7 +8,7 @@ const Podcast = () => {
   return (
     <PodcastDetailProvider>
       <Header />
-      <div className='podcast-details__container'>
+      <div className='podcast__container'>
         <PodcastDetail />
         <PodcastEpisodes />
       </div>

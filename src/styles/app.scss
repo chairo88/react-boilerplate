@@ -1,7 +1,9 @@
 @import '~sass-rem/rem';
 
 @import 'variables';
+@import 'overrides';
 
+@import '../routes/styles';
 @import '../components/Header/styles';
 @import '../components/Search/styles';
 @import '../components/PodcastCard/styles';
@@ -10,6 +12,7 @@
 @import '../components/Divider/styles';
 @import '../components/PodcastEpisodes/styles';
 @import '../components/PodcastEpisodesTable/styles';
+@import '../components/EpisodeDetail/styles';
 
 html {
   background-color: $podcaster-background-color;

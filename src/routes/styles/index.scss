@@ -1,0 +1,7 @@
+.podcast__container,
+.episode__container {
+  display: grid;
+  grid-template-columns: minmax(rem(210px), 1fr) minmax(50ch, 3fr);
+  grid-column-gap: $podcaster-spacing-64;
+  margin-top: $podcaster-spacing-24;
+}

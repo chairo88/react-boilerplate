@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { usePodcastDetail } from '../../context/podcastDetail';
 import { formatDate, millisToMinutesAndSeconds } from '../../utils';
 import wordings from './wordings';
@@ -6,27 +7,38 @@ import wordings from './wordings';
 const { table: { headers: { title, duration, date } } } = wordings;
 
 const PodcastEpisodesTable = () => {
+  const params = useParams();
   const { podcastEpisodes } = usePodcastDetail();
 
+  console.log('podcastEpisodes?.slice(1) ', podcastEpisodes?.slice(1));
+  console.log('params ', params);
   return (
     <div className='podcast-episodes-table__container'>
       <table className='podcast-episodes-table'>
-        <tr className='podcast-episodes-table__header-row'>
-          <th className='podcast-episodes-table__title'>{title}</th>
-          <th>{date}</th>
-          <th className='podcast-episodes-table-duration'>{duration}</th>
-        </tr>
-        {
-          podcastEpisodes?.slice(1).map((element, index) => {
-            return (
-              <tr key={index}>
-                <td className='podcast-episodes-table__title'>{element.trackName}</td>
-                <td className='podcast-episodes-table__date'>{formatDate(new Date(element.releaseDate))}</td>
-                <td className='podcast-episodes-table-duration'>{millisToMinutesAndSeconds(element.trackTimeMillis)}</td>
-              </tr>
-            );
-          })
-        }
+        <thead className='podcast-episodes-table__header'>
+          <tr>
+            <th className='podcast-episodes-table__title'>{title}</th>
+            <th className='podcast-episodes-table__date'>{date}</th>
+            <th className='podcast-episodes-table-duration'>{duration}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            podcastEpisodes?.slice(1).map((element, index) => {
+              return (
+                <tr key={index}>
+                  <td className='podcast-episodes-table__title'>
+                    <Link to={`${element.collectionId}/episode/${element.trackId}`}>
+                      {element.trackName}
+                    </Link>
+                  </td>
+                  <td className='podcast-episodes-table__date'>{formatDate(new Date(element.releaseDate))}</td>
+                  <td className='podcast-episodes-table-duration'>{millisToMinutesAndSeconds(element.trackTimeMillis)}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
       </table>
     </div>
   );
