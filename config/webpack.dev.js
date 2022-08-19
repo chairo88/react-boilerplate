@@ -24,14 +24,6 @@ const devConfig = {
     new ReactRefreshWebpackPlugin()
   ],
   devtool: 'eval-source-map',
-  module: {
-    rules: [
-      {
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        test: /\.(css|scss|sass)$/,
-      },
-    ]
-  }
 };
 
 module.exports = merge(common, devConfig);

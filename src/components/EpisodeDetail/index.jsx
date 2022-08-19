@@ -15,25 +15,24 @@ const EpisodeDetail = () => {
     }
   });
 
-  console.log('episodeDetail ', episodeDetail);
-  const getDescription = (text) => {
-    return {
-      __html: text
-    };
-  };
+  const getDescription = (text) => ({ __html: text });
   
   return (
     <div className='episode-details__info'>
       <h2 className='episode-detail__title'>
         {episodeDetail?.trackName}
       </h2>
-      <div className='episode-detail__description' dangerouslySetInnerHTML={getDescription(episodeDetail?.description)}/>
-      <div className='episode-detail__player'>
-        <audio controls>
-          <source src={episodeDetail?.episodeUrl} type="audio/mpeg" />
-          {'aflknflgwaknf'}
-        </audio>
-      </div>
+      <div 
+        className='episode-detail__description' 
+        dangerouslySetInnerHTML={getDescription(episodeDetail?.description)}
+      />
+      <audio 
+        className='episode-detail__player'
+        controls 
+        preload="metadata" 
+        title={episodeDetail?.trackName} 
+        src={episodeDetail?.episodeUrl} 
+      />
     </div>
   );
 };
