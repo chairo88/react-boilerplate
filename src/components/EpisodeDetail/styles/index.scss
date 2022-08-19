@@ -15,8 +15,8 @@
   font-size: $podcaster-font-size-14;
   font-style: italic;
   margin: $podcaster-spacing-16 0 $podcaster-spacing-8;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .episode-detail__player {

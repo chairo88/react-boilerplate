@@ -6,10 +6,9 @@ const EpisodeDetail = () => {
   const { episodeId } = useParams();
   const { podcastEpisodes } = usePodcastDetail();
 
-  const newArr = podcastEpisodes;
   let episodeDetail;
 
-  newArr?.forEach(element => {
+  podcastEpisodes?.forEach(element => {
     if(String(element.trackId) === String(episodeId)) {
       episodeDetail = element;
     }

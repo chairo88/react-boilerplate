@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { usePodcastDetail } from '../../context/podcastDetail';
 import { formatDate, millisToMinutesAndSeconds } from '../../utils';
 import wordings from './wordings';
@@ -7,11 +7,8 @@ import wordings from './wordings';
 const { table: { headers: { title, duration, date } } } = wordings;
 
 const PodcastEpisodesTable = () => {
-  const params = useParams();
   const { podcastEpisodes } = usePodcastDetail();
 
-  console.log('podcastEpisodes?.slice(1) ', podcastEpisodes?.slice(1));
-  console.log('params ', params);
   return (
     <div className='podcast-episodes-table__container'>
       <table className='podcast-episodes-table'>

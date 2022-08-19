@@ -3,7 +3,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useParams,
 } from 'react-router-dom';
 
 import './styles/app.scss';
@@ -14,7 +13,6 @@ import Episode from './routes/episode';
 import { PodcastsProvider } from './context/podcasts';
 
 function App() {  
-  console.log('useParams()', useParams());
   return (
     <PodcastsProvider>
       <BrowserRouter>
