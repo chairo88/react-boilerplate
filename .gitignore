@@ -12,3 +12,4 @@ node_modules
 
 # Dynamically processed files
 dist
+.vercel
