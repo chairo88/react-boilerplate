@@ -1,5 +1,11 @@
 @import './variables';
 
+.header__container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .header__title {
   color: $podcaster-link-color;
 }
@@ -11,4 +17,15 @@
 .header__divider {
   border: 1px solid $haeder-divider-color;
   height: 0;
+}
+
+.header__loader {
+  // use !important to override BounceLoader inline styles
+  height: 30px !important;
+  width: 30px !important;
+
+  span {
+    height: 30px !important;
+    width: 30px !important;
+  }
 }

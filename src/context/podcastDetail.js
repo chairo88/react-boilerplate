@@ -2,12 +2,14 @@ import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { daysToMilliseconds } from '../utils';
 import CONSTANTS from '../utils/constants';
+import { useAppContext } from './app';
 import { usePodcasts } from './podcasts';
 
 const { URL_CORS_API } = CONSTANTS;
 const PodcastDetailContext = React.createContext();
 
 export const PodcastDetailProvider = (props) => {
+  const { setIsLoading } = useAppContext();
   const { podcasts } = usePodcasts();
   const { podcastId } = useParams();
   const podcastDetails = podcasts.find(podcast => podcast.id.attributes['im:id'] === podcastId);
@@ -15,13 +17,21 @@ export const PodcastDetailProvider = (props) => {
   const [podcastEpisodesCounter, setpodcastEpisodesCounter] = useState(null);
 
   const getPodcastEpisodes = async () => {
-    const podcastDetailUrl = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=30`;
+    const podcastDetailUrl = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode`;
   
-    const response = await fetch(`${URL_CORS_API}${encodeURIComponent(podcastDetailUrl)}`);
-    const { contents } = await response.json();
-    const result = JSON.parse(contents);
-    setPodcastEpisodes(result?.results);
-    setpodcastEpisodesCounter(result?.resultCount -1);
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${URL_CORS_API}${encodeURIComponent(podcastDetailUrl)}`);
+      const { contents } = await response.json();
+      const result = JSON.parse(contents);
+      setPodcastEpisodes(result?.results);
+      setpodcastEpisodesCounter(result?.resultCount -1);
+    } catch(error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+    
   };
 
   useEffect(() => {
